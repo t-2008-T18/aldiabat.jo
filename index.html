@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta name="description" content="شركة عبدالسلام الذيابات لمواد البناء - تجارة الحديد والإسمنت في إربد منذ 1979">
+<meta name="keywords" content="عبدالسلام الذيابات، مواد بناء، حديد، إسمنت، إربد، الأردن">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شركة عبدالسلام ذيابات | تجارة الحديد والإسمنت</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+:root {
+  --black:   #080b0f;
+  --dark:    #0f1419;
+  --gold:    #c9952a;
+  --gold-lt: #e0b44a;
+  --steel:   #8a9bb0;
+  --offwhite:#f0ede8;
+  --white:   #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--offwhite);
+  font-family: 'Cairo', Tahoma, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  height: 80px;
+  background: rgba(8, 11, 15, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,149,42,0.2);
+  transition: background .3s;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-wrap img {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: white;
+  padding: 4px;
+  object-fit: contain;
+}
+
+.logo-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.logo-text span {
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+}
+
+.nav-menu a {
+  color: var(--steel);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: .25s;
+}
+
+.nav-menu a:hover {
+  color: var(--white);
+  background: rgba(201,149,42,0.15);
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  filter: brightness(.45) saturate(.6);
+}
+
+/* gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to top, var(--black) 0%, transparent 45%),
+    linear-gradient(to bottom, rgba(8,11,15,.5) 0%, transparent 30%);
+}
+
+/* watermark year */
+.hero-watermark {
+  position: absolute;
+  z-index: 2;
+  font-size: clamp(140px, 22vw, 320px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  letter-spacing: -10px;
+  user-select: none;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,149,42,0.15);
+  border: 1px solid rgba(201,149,42,0.4);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 7px 22px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.hero-logo {
+  width: 110px;
+  background: white;
+  border-radius: 18px;
+  padding: 10px;
+  margin: 0 auto 30px;
+  display: block;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.hero h2 {
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.hero p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 2;
+  color: var(--steel);
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 32px;
+  border-radius: 10px;
+  transition: .25s;
+  box-shadow: 0 6px 24px rgba(201,149,42,.35);
+}
+
+.btn-primary:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(201,149,42,.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.25);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 10px;
+  transition: .25s;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ─── STATS STRIP ─── */
+.stats {
+  background: var(--dark);
+  border-top: 1px solid rgba(201,149,42,0.15);
+  border-bottom: 1px solid rgba(201,149,42,0.15);
+}
+
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide-x: 1px solid red;
+}
+
+.stat-item {
+  padding: 44px 20px;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.07);
+}
+
+.stat-item:last-child { border-left: none; }
+
+.stat-num {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--steel);
+  font-weight: 600;
+}
+
+/* ─── ABOUT STRIP ─── */
+.about-strip {
+  max-width: 900px;
+  margin: 90px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.section-body {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--steel);
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.trust-badge {
+  background: rgba(201,149,42,0.08);
+  border: 1px solid rgba(201,149,42,0.25);
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--offwhite);
+}
+
+.trust-badge span { color: var(--gold); }
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 80px 30px;
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.services-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.03);
+  padding: 44px 36px;
+  transition: .3s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .3s;
+}
+
+.service-card:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.service-card:hover {
+  background: rgba(201,149,42,0.06);
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--steel);
+}
+
+/* ─── PRICES CTA ─── */
+.prices-cta {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.prices-cta h2 {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.prices-cta p {
+  font-size: 16px;
+  color: var(--steel);
+  margin-bottom: 36px;
+  line-height: 2;
+}
+
+.prices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.price-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(201,149,42,0.07);
+  border: 1.5px solid rgba(201,149,42,0.3);
+  border-radius: 14px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--offwhite);
+  font-size: 16px;
+  font-weight: 800;
+  transition: .25s;
+}
+
+.price-card:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,149,42,.35);
+}
+
+.price-card .icon { font-size: 26px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #050709;
+  border-top: 1px solid rgba(201,149,42,0.2);
+  padding: 70px 30px 0;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-brand img {
+  width: 70px;
+  background: white;
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 18px;
+}
+
+.footer-brand h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.footer-brand .since {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--steel);
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: var(--steel);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+
+.footer-col ul li a:hover { color: var(--white); }
+
+.footer-contact p {
+  font-size: 14px;
+  color: var(--steel);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact a {
+  color: var(--steel);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.footer-contact a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 22px 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(138,155,176,0.6);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+
+  .nav-menu { display: none; }
+
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+
+  .stat-item { border-left: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  .services-grid { grid-template-columns: 1fr; gap: 1px; }
+
+  .prices-grid { grid-template-columns: 1fr; }
+
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  .hero-watermark { font-size: 120px; }
+}
+
+@media (max-width: 600px) {
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo-wrap">
+    <img src="aldiabat.jpg" alt="شعار شركة عبدالسلام ذيابات">
+    <div class="logo-text">
+      <h3>شركة عبدالسلام ذيابات</h3>
+      <span>منذ عام 1979</span>
+    </div>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="about.html">نبذة عنا</a></li>
+    <li><a href="services.html">الخدمات</a></li>
+    <li><a href="contact.html">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="about2.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-watermark">١٩٧٩</div>
+
+  <div class="hero-content">
+   
+    <img src="aldiabat.jpg" class="hero-logo" alt="شعار الشركة">
+    <h1>شركة عبدالسلام ذيابات</h1>
+    <h2>لتجارة الحديد والإسمنت ومواد البناء</h2>
+    <p>
+      أكثر من 45 عاماً من الخبرة في تأمين مواد البناء للمشاريع السكنية والتجارية والصناعية، بأعلى معايير الجودة والثقة في مختلف أنحاء المملكة.
+    </p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">تواصل معنا الآن</a>
+      <a href="services.html" class="btn-outline">استعرض خدماتنا</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">45+</div>
+      <div class="stat-label">سنة خبرة</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1979</div>
+      <div class="stat-label">سنة التأسيس</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">معتمدون بنكياً</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">ثقة عملائنا</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-strip">
+  <span class="section-eyebrow">من نحن</span>
+  <h2 class="section-title">شركة راسخة بثقة 45 عاماً</h2>
+  <p class="section-body">
+    منذ عام 1979 وشركة عبدالسلام ذيابات تقدم حلولاً متكاملة في تجارة الحديد والإسمنت ومواد البناء، مع التزام دائم بالجودة والمصداقية وسرعة التوريد وخدمة العملاء في مختلف أنحاء المملكة.
+  </p>
+  <div class="trust-badges">
+    <div class="trust-badge"><span>✔</span> معتمدون رسمياً لدى كافة البنوك الإسلامية</div>
+    <div class="trust-badge"><span>✔</span> معتمدون لدى صندوق الائتمان العسكري</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <span class="section-eyebrow">ماذا نقدم</span>
+      <h2 class="section-title">خدماتنا</h2>
+      <p class="section-body" style="margin:0 auto">
+        مجموعة متكاملة من خدمات تجارة مواد البناء بجودة عالية وأسعار منافسة.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <h3>الحديد</h3>
+        <p>توريد جميع أنواع حديد التسليح للمشاريع السكنية والتجارية والصناعية بأفضل المواصفات والأسعار.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧱</span>
+        <h3>الإسمنت</h3>
+        <p>توفير أجود أنواع الإسمنت المعتمد للمباني والمنشآت بكميات مختلفة حسب احتياج المشروع.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚛</span>
+        <h3>النقل والتوريد</h3>
+        <p>خدمة نقل وتوصيل سريعة وآمنة لجميع مناطق المملكة ضمن الوقت المحدد.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3>المشاريع التجارية</h3>
+        <p>تأمين مواد البناء للمشاريع التجارية الكبرى والمجمعات السكنية والاستثمارية.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <h3>المشاريع السكنية</h3>
+        <p>خدمة أصحاب المنازل والمقاولين وتأمين احتياجات البناء من الأساسات حتى التشطيب.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⭐</span>
+        <h3>الاستشارات</h3>
+        <p>مساعدة العملاء في اختيار المواد المناسبة حسب نوع المشروع والميزانية المطلوبة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES CTA -->
+<section class="prices-cta">
+  <span class="section-eyebrow">أسعار اليوم</span>
+  <h2>تابع أسعار السوق أولاً بأول</h2>
+  <p>نوفر لك روابط مباشرة لأسعار الحديد والإسمنت من بورصة عمان للأوراق المالية.</p>
+  <div class="prices-grid">
+    <a href="https://www.ase.com.jo/ar/company_historical/JOST" target="_blank" class="price-card">
+      <span class="icon">📈</span>
+      أسعار الحديد اليوم
+    </a>
+    <a href="https://www.ase.com.jo/ar/company_historical/JOCM" target="_blank" class="price-card">
+      <span class="icon">🧱</span>
+      أسعار الإسمنت اليوم
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="aldiabat.jpg" alt="شعار الشركة">
+      <h3>شركة عبدالسلام ذيابات</h3>
+      <span class="since">منذ عام 1979</span>
+      <p>خبرة تزيد عن 45 عاماً وثقة نفتخر ببنائها مع عملائنا في مختلف أنحاء المملكة الأردنية.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="about.html">نبذة عنا</a></li>
+        <li><a href="services.html">خدماتنا</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>تواصل معنا</h4>
+      <p>📍 إربد — طريق الحصن</p>
+      <p>📞 <a href="tel:0795570439">0795570439</a></p>
+      <p>📱 <a href="tel:0799150777">0799150777</a></p>
+      <p>✉️ <a href="mailto:info@asdiabat.com">info@asdiabat.com</a></p>
+      <p>✉️ <a href="mailto:ezaldiabat@gmail.com">ezaldiabat@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 شركة عبدالسلام ذيابات لتجارة الحديد والإسمنت ومواد البناء — جميع الحقوق محفوظة
+  </div>
+</footer>
+
+</body>
+</html>
