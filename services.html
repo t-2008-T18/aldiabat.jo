@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تواصل معنا - شركة عبدالسلام ذيابات لمواد البناء</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>خدماتنا - شركة عبدالسلام ذيابات لمواد البناء</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root { --black:#080b0f; --dark:#0f1419; --gold:#c9952a; --gold-lt:#e0b44a; --steel:#8a9bb0; --offwhite:#f0ede8; --white:#ffffff; }
+html { scroll-behavior:smooth; }
 body { background:var(--black); color:var(--offwhite); font-family:'Cairo',Tahoma,sans-serif; overflow-x:hidden; }
 
 /* NAV */
@@ -40,38 +40,43 @@ nav {
   .nav-menu a:hover, .nav-menu a.active { color:var(--gold); background:rgba(201,149,42,.1); }
 }
 
-/* PAGE HEADER */
-.page-header { padding-top:120px; text-align:center; padding-bottom:60px; padding-left:20px; padding-right:20px; border-bottom:1px solid rgba(255,255,255,.05); }
-.page-header .eyebrow { display:inline-block; font-size:12px; font-weight:700; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-top:30px; margin-bottom:18px; }
-.page-header h1 { font-size:clamp(36px,6vw,62px); font-weight:900; color:var(--white); margin-bottom:16px; }
-.page-header p { font-size:17px; color:rgba(255,255,255,.55); line-height:2; max-width:600px; margin:0 auto; }
+/* HERO */
+.page-hero { position:relative; padding:180px 30px 90px; text-align:center; overflow:hidden; }
+.page-hero-watermark { position:absolute; z-index:1; font-size:clamp(120px,20vw,280px); font-weight:900; color:rgba(255,255,255,.04); letter-spacing:-10px; user-select:none; top:60px; left:50%; transform:translateX(-50%); white-space:nowrap; }
+.section-eyebrow { position:relative; z-index:2; display:inline-block; font-size:12px; font-weight:700; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:18px; }
+.page-hero h1 { position:relative; z-index:2; font-size:clamp(36px,6vw,64px); font-weight:900; color:var(--white); margin-bottom:18px; }
+.page-hero p { position:relative; z-index:2; font-size:17px; line-height:2; color:var(--steel); max-width:720px; margin:0 auto; }
 
-/* CONTACT SECTION */
-.contact-section { padding:70px 5%; max-width:1100px; margin:0 auto; }
-.contact-box { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:20px; padding:50px; margin-bottom:50px; }
-.contact-box h2 { font-size:26px; font-weight:800; color:var(--white); margin-bottom:36px; display:flex; align-items:center; gap:12px; }
-.contact-box h2::after { content:''; flex:1; height:1px; background:rgba(255,255,255,.08); }
-.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:16px; }
-.contact-btn { text-decoration:none; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:32px 20px; border-radius:14px; display:flex; flex-direction:column; align-items:center; gap:14px; color:rgba(255,255,255,.75); transition:.25s; position:relative; overflow:hidden; }
-.contact-btn::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transform-origin:right; transition:transform .3s; }
-.contact-btn:hover::after { transform:scaleX(1); transform-origin:left; }
-.contact-btn:hover { background:rgba(201,149,42,.1); border-color:rgba(201,149,42,.35); color:var(--white); transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.3); }
-.contact-btn i { font-size:38px; color:var(--gold); }
-.contact-btn span { font-size:14px; font-weight:700; }
+/* SERVICES */
+.services { max-width:1200px; margin:0 auto; padding:0 30px 100px; }
+.service-block { display:grid; grid-template-columns:90px 1fr; gap:30px; background:rgba(201,149,42,.05); border:1px solid rgba(201,149,42,.18); border-radius:18px; padding:40px; margin-bottom:30px; transition:.3s; }
+.service-block:hover { border-color:var(--gold); background:rgba(201,149,42,.09); transform:translateY(-4px); }
+.service-icon { width:90px; height:90px; border-radius:16px; background:linear-gradient(135deg,rgba(201,149,42,.25),rgba(201,149,42,.05)); border:1px solid rgba(201,149,42,.3); display:flex; align-items:center; justify-content:center; font-size:38px; }
+.service-content h3 { font-size:24px; font-weight:800; color:var(--white); margin-bottom:10px; }
+.service-content > p { font-size:15px; line-height:2; color:var(--steel); margin-bottom:18px; max-width:800px; }
+.service-tags { display:flex; flex-wrap:wrap; gap:10px; }
+.service-tags span { background:rgba(201,149,42,.1); border:1px solid rgba(201,149,42,.3); color:var(--gold-lt); font-size:13px; font-weight:600; padding:6px 16px; border-radius:20px; }
 
-/* SOCIAL */
-.social-box { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:20px; padding:50px; }
-.social-box h2 { font-size:26px; font-weight:800; color:var(--white); margin-bottom:36px; display:flex; align-items:center; gap:12px; }
-.social-box h2::after { content:''; flex:1; height:1px; background:rgba(255,255,255,.08); }
-.social-links { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-.social-links a { padding:16px 34px; border-radius:12px; text-decoration:none; color:#fff; font-size:16px; font-weight:700; transition:.25s; display:flex; align-items:center; gap:10px; }
-.social-links a:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.35); filter:brightness(1.1); }
-.facebook { background:#1877F2; }
-.instagram { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
-.whatsapp { background:#25D366; }
+/* PROCESS */
+.process-section { background:var(--dark); border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05); padding:90px 30px; }
+.process-inner { max-width:1100px; margin:0 auto; text-align:center; }
+.section-title { font-size:clamp(26px,3.5vw,38px); font-weight:900; color:var(--white); margin-bottom:50px; }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.process-step { background:rgba(201,149,42,.06); border:1px solid rgba(201,149,42,.2); border-radius:14px; padding:35px 20px; }
+.process-step .num { font-size:38px; font-weight:900; color:rgba(201,149,42,.35); margin-bottom:14px; }
+.process-step h4 { font-size:16px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.process-step p { font-size:13px; color:var(--steel); line-height:1.9; }
+
+/* CTA */
+.cta-section { max-width:1000px; margin:90px auto 0; padding:0 30px; text-align:center; }
+.cta-box { background:linear-gradient(135deg,rgba(201,149,42,.12),rgba(201,149,42,.03)); border:1px solid rgba(201,149,42,.3); border-radius:20px; padding:60px 40px; }
+.cta-box h3 { font-size:28px; font-weight:900; color:var(--white); margin-bottom:14px; }
+.cta-box p { font-size:15px; color:var(--steel); margin-bottom:28px; }
+.cta-btn { display:inline-block; background:var(--gold); color:var(--black); font-weight:800; font-size:15px; padding:16px 40px; border-radius:10px; text-decoration:none; transition:.25s; }
+.cta-btn:hover { background:var(--gold-lt); transform:translateY(-3px); }
 
 /* FOOTER */
-footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); padding:70px 30px 0; }
+footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); padding:70px 30px 0; margin-top:90px; }
 .footer-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:60px; padding-bottom:60px; }
 .footer-brand img { width:70px; background:white; border-radius:12px; padding:6px; margin-bottom:18px; }
 .footer-brand h3 { font-size:18px; font-weight:800; color:var(--white); margin-bottom:6px; }
@@ -88,20 +93,22 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
 .footer-bottom { border-top:1px solid rgba(255,255,255,.07); padding:22px 0; text-align:center; font-size:13px; color:rgba(138,155,176,.6); }
 
 /* MOBILE */
-@media (max-width:768px) {
-  .contact-box, .social-box { padding:30px 20px; }
-  .social-links a { padding:13px 22px; font-size:14px; }
+@media (max-width:900px) {
+  .page-hero { padding:150px 20px 70px; }
+  .page-hero-watermark { font-size:110px; top:90px; }
+  .service-block { grid-template-columns:1fr; text-align:center; }
+  .service-icon { margin:0 auto; }
+  .process-grid { grid-template-columns:repeat(2,1fr); }
   .footer-inner { grid-template-columns:1fr; gap:40px; }
-  .page-header { padding-top:140px; }
 }
 </style>
-<meta name="description" content="تواصل مع شركة عبدالسلام ذيابات لمواد البناء في إربد عبر الهاتف، واتساب، البريد الإلكتروني أو زورونا على الخريطة. نسعد بخدمتكم.">
-<link rel="canonical" href="https://t-2008-t18.github.io/aldiabat.jo/contact.html">
+<meta name="description" content="خدمات شركة عبدالسلام ذيابات: توريد الحديد والإسمنت، النقل والتوريد، خدمة المشاريع التجارية والسكنية، والاستشارات الفنية في إربد والأردن.">
+<link rel="canonical" href="https://t-2008-t18.github.io/aldiabat.jo/services.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="تواصل معنا - شركة عبدالسلام ذيابات لمواد البناء">
-<meta property="og:description" content="تواصل مع شركة عبدالسلام ذيابات لمواد البناء في إربد عبر الهاتف، واتساب، البريد الإلكتروني أو زورونا على الخريطة. نسعد بخدمتكم.">
+<meta property="og:title" content="خدماتنا - شركة عبدالسلام ذيابات لمواد البناء">
+<meta property="og:description" content="خدمات شركة عبدالسلام ذيابات: توريد الحديد والإسمنت، النقل والتوريد، خدمة المشاريع التجارية والسكنية، والاستشارات الفنية في إربد والأردن.">
 <meta property="og:image" content="https://t-2008-t18.github.io/aldiabat.jo/aldiabat.jpg">
-<meta property="og:url" content="https://t-2008-t18.github.io/aldiabat.jo/contact.html">
+<meta property="og:url" content="https://t-2008-t18.github.io/aldiabat.jo/services.html">
 <meta property="og:locale" content="ar_JO">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#080b0f">
@@ -125,7 +132,7 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
 
 <nav>
   <div class="logo-wrap">
-    <img src="assets/aldiabat.webp" onerror="this.onerror=null;this.src='aldiabat.jpg'" alt="شعار الشركة">
+    <img src="assets/aldiabat.webp" onerror="this.onerror=null;this.src='aldiabat.jpg'" alt="شعار شركة عبدالسلام ذيابات">
     <div class="logo-text">
       <h3>شركة عبدالسلام ذيابات</h3>
       <span>منذ عام 1979</span>
@@ -135,79 +142,133 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
   <ul class="nav-menu">
     <li><a href="index.html">الرئيسية</a></li>
     <li><a href="about.html">من نحن</a></li>
-    <li><a href="services.html">الخدمات</a></li>
-    <li><a href="contact.html" class="active">تواصل معنا</a></li>
+    <li><a href="services.html" class="active">الخدمات</a></li>
+    <li><a href="contact.html">تواصل معنا</a></li>
   </ul>
   <button class="theme-toggle" aria-label="تبديل الوضع">☀️</button>
 </nav>
 
-<div class="page-header">
-  <span class="eyebrow">نحن هنا لخدمتك</span>
-  <h1>تواصل معنا</h1>
-  <p>يسعدنا استقبال استفساراتكم وطلباتكم وتقديم أفضل الحلول في مجال الحديد والإسمنت ومواد البناء.</p>
-</div>
+<section class="page-hero">
+  <div class="page-hero-watermark">١٩٧٩</div>
+  <span class="section-eyebrow">خدماتنا</span>
+  <h1>حلول متكاملة لكل مشروع بناء</h1>
+  <p>نقدم مجموعة متكاملة من خدمات تجارة الحديد والإسمنت ومواد البناء بجودة عالية وأسعار منافسة، لتلبية احتياجات المشاريع السكنية والتجارية والصناعية على أعلى مستوى من الاحترافية.</p>
+</section>
 
-<section class="contact-section">
-  <div class="contact-box">
-    <h2>طرق التواصل</h2>
-    <div class="contact-grid">
-      <a href="tel:0788544944" class="contact-btn">
-        <i class="fa-solid fa-phone"></i>
-        <span>اتصال مباشر</span>
-      </a>
-      <a href="https://wa.me/962799150777" target="_blank" class="contact-btn">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>واتساب</span>
-      </a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@asdiabat.com" target="_blank" class="contact-btn">
-        <i class="fa-solid fa-envelope"></i>
-        <span>البريد الرسمي</span>
-      </a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ezaldiabat@gmail.com" target="_blank" class="contact-btn">
-        <i class="fa-solid fa-paper-plane"></i>
-        <span>Gmail</span>
-      </a>
-      <a href="https://maps.app.goo.gl/ei1Dqs874qm1xKZV6" target="_blank" class="contact-btn">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>الموقع على Google Maps</span>
-      </a>
+<section class="services">
+  <div class="service-block reveal">
+    <div class="service-icon">🏗️</div>
+    <div class="service-content">
+      <h3>الحديد</h3>
+      <p>نوفر جميع أنواع وأقطار حديد التسليح (8مم وحتى 32مم) من مصانع معتمدة ومطابقة للمواصفات القياسية الأردنية، مع إمكانية التوريد بكميات كبيرة للمشاريع الإنشائية الكبرى وكميات صغيرة لمشاريع الأفراد.</p>
+      <div class="service-tags">
+        <span>حديد تسليح بكافة الأقطار</span>
+        <span>مطابق للمواصفات القياسية</span>
+        <span>توريد بالجملة والمفرق</span>
+      </div>
     </div>
   </div>
 
-  <div class="contact-box" id="inquiry-box">
-    <h2>أرسل لنا طلبك</h2>
-    <form class="inquiry-form" id="inquiryForm">
-      <div class="row2">
-        <div>
-          <label for="f-name">الاسم</label>
-          <input type="text" id="f-name" name="name" placeholder="اسمك الكامل" required>
-        </div>
-        <div>
-          <label for="f-phone">رقم الهاتف</label>
-          <input type="tel" id="f-phone" name="phone" placeholder="07xxxxxxxx" required>
-        </div>
+  <div class="service-block reveal">
+    <div class="service-icon">🧱</div>
+    <div class="service-content">
+      <h3>الإسمنت</h3>
+      <p>نوفر أجود أنواع الإسمنت المعتمد من الشركات الرائدة محلياً، بأكياس أو بالسائب حسب طبيعة المشروع، مع تخزين سليم يحفظ جودة المنتج حتى لحظة التسليم.</p>
+      <div class="service-tags">
+        <span>إسمنت بورتلاندي معتمد</span>
+        <span>توريد بالسائب أو بالأكياس</span>
+        <span>تخزين يحافظ على الجودة</span>
       </div>
-      <div>
-        <label for="f-msg">تفاصيل الطلب</label>
-        <textarea id="f-msg" name="message" placeholder="اكتب نوع المواد والكمية المطلوبة..." required></textarea>
-      </div>
-      <button type="submit">إرسال الطلب عبر واتساب</button>
-    </form>
+    </div>
   </div>
 
-  <div class="social-box">
-    <h2>تابعنا على مواقع التواصل</h2>
-    <div class="social-links">
-      <a class="facebook" href="https://www.facebook.com/AbdulSalamDhiabat" target="_blank">
-        <i class="fab fa-facebook-f"></i> Facebook
-      </a>
-      <a class="instagram" href="https://www.instagram.com/aldiabat.jo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a class="whatsapp" href="https://wa.me/962799150777" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
+  <div class="service-block reveal">
+    <div class="service-icon">🚛</div>
+    <div class="service-content">
+      <h3>النقل والتوريد</h3>
+      <p>أسطول نقل خاص يغطي جميع محافظات المملكة، مع جدولة دقيقة لمواعيد التسليم تضمن استمرارية العمل في موقع المشروع دون تأخير.</p>
+      <div class="service-tags">
+        <span>تغطية كافة مناطق المملكة</span>
+        <span>تسليم في الوقت المحدد</span>
+        <span>جدولة توريد مرنة</span>
+      </div>
     </div>
+  </div>
+
+  <div class="service-block reveal">
+    <div class="service-icon">🏢</div>
+    <div class="service-content">
+      <h3>المشاريع التجارية</h3>
+      <p>نتعامل مع المقاولين والشركات الإنشائية في تأمين مواد البناء للمجمعات التجارية والاستثمارية الكبرى، مع عروض سعرية تنافسية للكميات الكبيرة.</p>
+      <div class="service-tags">
+        <span>عقود توريد للمقاولين</span>
+        <span>أسعار خاصة للكميات الكبيرة</span>
+        <span>تسهيلات ائتمانية</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-block reveal">
+    <div class="service-icon">🏠</div>
+    <div class="service-content">
+      <h3>المشاريع السكنية</h3>
+      <p>نخدم أصحاب المنازل والمقاولين الأفراد من أول حفر الأساسات حتى مرحلة التشطيب، مع مرونة في الكميات الصغيرة والمتوسطة.</p>
+      <div class="service-tags">
+        <span>مناسب للبناء الفردي</span>
+        <span>من الأساسات حتى التشطيب</span>
+        <span>استشارة مجانية بالكميات</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-block reveal">
+    <div class="service-icon">⭐</div>
+    <div class="service-content">
+      <h3>الاستشارات الفنية</h3>
+      <p>فريق ذو خبرة تزيد عن 45 عاماً في السوق المحلي يساعد العملاء على اختيار المواد المناسبة حسب نوع المشروع، الميزانية المتاحة، والمخطط الإنشائي.</p>
+      <div class="service-tags">
+        <span>اختيار المواد الأمثل</span>
+        <span>متابعة تحركات الأسعار</span>
+        <span>دعم حسب الميزانية</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="process-inner">
+    <span class="section-eyebrow">طريقة العمل</span>
+    <h2 class="section-title">كيف نخدمك؟</h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="num">01</div>
+        <h4>التواصل والاستفسار</h4>
+        <p>تواصل معنا عبر الهاتف أو واتساب وشاركنا تفاصيل مشروعك.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">02</div>
+        <h4>تحديد الاحتياج</h4>
+        <p>نساعدك في حساب الكميات والمواصفات المناسبة لمشروعك.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">03</div>
+        <h4>عرض السعر</h4>
+        <p>نرسل لك عرض سعر تنافسي يشمل التوريد والتسليم.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">04</div>
+        <h4>التوريد والتسليم</h4>
+        <p>نوصل المواد لموقع المشروع بالجودة والوقت المتفق عليه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-box">
+    <h3>جاهزون لخدمة مشروعك القادم</h3>
+    <p>تواصل معنا الآن واحصل على عرض سعر مخصص لمشروعك</p>
+    <a href="contact.html" class="cta-btn">تواصل معنا</a>
   </div>
 </section>
 
@@ -237,30 +298,10 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
       <p>✉️ <a href="mailto:ezaldiabat@gmail.com">ezaldiabat@gmail.com</a></p>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 شركة عبدالسلام ذيابات لتجارة الحديد والإسمنت ومواد البناء - جميع الحقوق محفوظة</div>
+  <div class="footer-bottom">© 2026 شركة عبدالسلام ذيابات - جميع الحقوق محفوظة</div>
 </footer>
 <button id="back-to-top" aria-label="العودة للأعلى" title="العودة للأعلى">↑</button>
 <a href="https://wa.me/962799150777" target="_blank" class="whatsapp-float" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب"><svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.37 3 4 8.37 4 15.04c0 2.43.71 4.7 1.94 6.6L4 29l7.56-1.9a11.9 11.9 0 0 0 4.48.87h.01c6.67 0 12.04-5.37 12.04-12.04C28.09 8.37 22.71 3 16.04 3zm0 21.9c-1.6 0-3.13-.43-4.46-1.23l-.32-.19-3.78.95.97-3.73-.21-.34a9.85 9.85 0 0 1-1.51-5.32c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 9.9 9.9c0 5.46-4.45 9.86-9.9 9.86zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.47.13-.62.15-.15.3-.36.45-.55.15-.2.2-.34.3-.55.1-.2.05-.4-.03-.55-.08-.15-.55-1.32-.75-1.8-.2-.46-.4-.4-.55-.4-.15 0-.32-.02-.5-.02-.17 0-.45.07-.7.34-.25.27-.95.93-.95 2.24 0 1.32.97 2.6 1.1 2.78.13.17 1.85 2.84 4.6 3.97 2.32.95 2.8.77 3.3.7.5-.07 1.6-.65 1.83-1.3.22-.62.22-1.15.15-1.3-.07-.13-.27-.2-.57-.34z"/></svg></a>
 <script src="assets/main.js" defer></script>
-<script>
-document.getElementById('inquiryForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var name = document.getElementById('f-name').value.trim();
-  var phone = document.getElementById('f-phone').value.trim();
-  var msg = document.getElementById('f-msg').value.trim();
-  if (!name || !phone || !msg) {
-    if (window.showToast) showToast('يرجى تعبئة جميع الحقول المطلوبة', 'error');
-    return;
-  }
-  var text = 'طلب جديد من الموقع%0Aالاسم: ' + encodeURIComponent(name) +
-             '%0Aالهاتف: ' + encodeURIComponent(phone) +
-             '%0Aالتفاصيل: ' + encodeURIComponent(msg);
-  if (window.showToast) showToast('تم تجهيز طلبك، سيتم تحويلك إلى واتساب الآن...');
-  setTimeout(function () {
-    window.open('https://wa.me/962799150777?text=' + text, '_blank');
-  }, 900);
-  e.target.reset();
-});
-</script>
 </body>
 </html>
