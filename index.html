@@ -96,6 +96,56 @@ nav {
   background: rgba(201,149,42,0.15);
 }
 
+/* ─── MOBILE NAV ─── */
+@media (max-width: 900px) {
+  nav {
+    padding: 0 16px;
+    height: 64px;
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 0;
+  }
+
+  .logo-wrap img {
+    width: 40px; height: 40px;
+  }
+
+  .logo-text h3 { font-size: 13px; }
+  .logo-text span { font-size: 10px; }
+
+  .nav-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 8px 0 4px;
+    border-top: 1px solid rgba(201,149,42,0.12);
+    margin-top: 8px;
+  }
+
+  .nav-menu li {
+    flex: 1;
+    text-align: center;
+  }
+
+  .nav-menu a {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 4px;
+    border-radius: 8px;
+    color: var(--steel);
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: var(--gold);
+    background: rgba(201,149,42,0.1);
+  }
+}
+
 /* ─── HERO ─── */
 .hero {
   position: relative;
@@ -118,7 +168,6 @@ nav {
   filter: brightness(.45) saturate(.6);
 }
 
-/* gradient overlay */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -128,7 +177,6 @@ nav {
     linear-gradient(to bottom, rgba(8,11,15,.5) 0%, transparent 30%);
 }
 
-/* watermark year */
 .hero-watermark {
   position: absolute;
   z-index: 2;
@@ -252,7 +300,6 @@ nav {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  divide-x: 1px solid red;
 }
 
 .stat-item {
@@ -550,45 +597,20 @@ footer {
 
 /* ─── MOBILE ─── */
 @media (max-width: 900px) {
-  nav { padding: 0 20px; }
-
-  .nav-menu { display: none; }
+  .hero { padding-top: 120px; min-height: 100svh; }
 
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
-
   .stat-item { border-left: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
 
   .services-grid { grid-template-columns: 1fr; gap: 1px; }
-
   .prices-grid { grid-template-columns: 1fr; }
-
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-
   .hero-watermark { font-size: 120px; }
 }
 
 @media (max-width: 600px) {
   .stats-inner { grid-template-columns: 1fr 1fr; }
 }
-  <meta property="og:title" content="شركة عبدالسلام الذيابات لمواد البناء">
-<meta property="og:description" content="شركة عبدالسلام الذيابات لتجارة الحديد والإسمنت ومواد البناء في إربد منذ عام 1979.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_JO">
-  <link rel="canonical" href="https://t-2008-t18.github.io/aldiabat.jo/">
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"شركة عبدالسلام الذيابات لمواد البناء",
-  "url":"https://t-2008-t18.github.io/aldiabat.jo/",
-  "telephone":"+962795570439",
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"إربد",
-    "addressCountry":"JO"
-  }
-}
-</script>
 </style>
 </head>
 <body>
@@ -619,7 +641,6 @@ footer {
   <div class="hero-watermark">١٩٧٩</div>
 
   <div class="hero-content">
-   
     <img src="aldiabat.jpg" class="hero-logo" alt="شعار الشركة">
     <h1>شركة عبدالسلام الذيابات لمواد البناء</h1>
     <h2>لتجارة الحديد والإسمنت ومواد البناء</h2>
@@ -765,5 +786,14 @@ footer {
   </div>
 </footer>
 
+<script>
+  // Mark active nav link
+  document.querySelectorAll('.nav-menu a').forEach(a => {
+    if (a.getAttribute('href') === 'index.html' || a.getAttribute('href') === './') {
+      a.classList.add('active');
+      a.style.color = 'var(--gold)';
+    }
+  });
+</script>
 </body>
 </html>
