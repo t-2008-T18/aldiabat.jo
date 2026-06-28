@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>من نحن - شركة عبدالسلام ذيابات</title>
+<title>من نحن - شركة عبدالسلام ذيابات لمواد البناء</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -21,7 +21,7 @@ nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
   display:flex; align-items:center; justify-content:space-between;
   padding:0 60px; height:80px;
-  background:rgba(8,11,15,.92); backdrop-filter:blur(12px);
+  background:var(--nav-bg); backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(201,149,42,.2);
 }
 .logo-wrap { display:flex; align-items:center; gap:14px; }
@@ -125,7 +125,7 @@ nav {
 .quote-section span { font-size:14px; color:var(--gold); font-weight:700; }
 
 /* ─── FOOTER ─── */
-footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:70px 30px 0; }
+footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); padding:70px 30px 0; }
 .footer-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:60px; padding-bottom:60px; }
 .footer-brand img { width:70px; background:white; border-radius:12px; padding:6px; margin-bottom:18px; }
 .footer-brand h3 { font-size:18px; font-weight:800; color:var(--white); margin-bottom:6px; }
@@ -154,23 +154,50 @@ footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:7
   .projects-grid { grid-template-columns:1fr; }
 }
 </style>
+<meta name="description" content="تعرف على قصة شركة عبدالسلام ذيابات منذ تأسيسها عام 1979، رؤيتنا، رسالتنا، وقيمنا في تجارة الحديد والإسمنت ومواد البناء بالأردن.">
+<link rel="canonical" href="https://t-2008-t18.github.io/aldiabat.jo/about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="من نحن - شركة عبدالسلام ذيابات لمواد البناء">
+<meta property="og:description" content="تعرف على قصة شركة عبدالسلام ذيابات منذ تأسيسها عام 1979، رؤيتنا، رسالتنا، وقيمنا في تجارة الحديد والإسمنت ومواد البناء بالأردن.">
+<meta property="og:image" content="https://t-2008-t18.github.io/aldiabat.jo/aldiabat.jpg">
+<meta property="og:url" content="https://t-2008-t18.github.io/aldiabat.jo/about.html">
+<meta property="og:locale" content="ar_JO">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#080b0f">
+<link rel="icon" href="assets/aldiabat.webp" type="image/webp">
+<link rel="stylesheet" href="assets/main.css">
+<script>
+(function(){
+  var t = localStorage.getItem('aldiabat-theme') || 'dark';
+  var L = {"--black":"#eae6dd","--dark":"#f6f4ef","--gold":"#a9761f","--gold-lt":"#8f6116","--steel":"#5a6b7e","--offwhite":"#171a1e","--white":"#0c0f12","--nav-bg":"rgba(255,255,255,.85)","--footer-bg":"#f0ede5"};
+  var D = {"--black":"#080b0f","--dark":"#0f1419","--gold":"#c9952a","--gold-lt":"#e0b44a","--steel":"#8a9bb0","--offwhite":"#f0ede8","--white":"#ffffff","--nav-bg":"rgba(8,11,15,.92)","--footer-bg":"#050709"};
+  var v = t === 'light' ? L : D;
+  var root = document.documentElement;
+  for (var k in v) root.style.setProperty(k, v[k]);
+  root.setAttribute('data-theme', t);
+})();
+</script>
 </head>
 <body>
+<div id="toast-stack"></div>
+
 
 <nav>
   <div class="logo-wrap">
-    <img src="aldiabat.jpg" alt="شعار شركة عبدالسلام ذيابات">
+    <img src="assets/aldiabat.webp" onerror="this.onerror=null;this.src='aldiabat.jpg'" alt="شعار شركة عبدالسلام ذيابات">
     <div class="logo-text">
       <h3>شركة عبدالسلام ذيابات</h3>
       <span>منذ عام 1979</span>
     </div>
   </div>
+  <button class="menu-toggle" aria-label="القائمة">☰</button>
   <ul class="nav-menu">
     <li><a href="index.html">الرئيسية</a></li>
     <li><a href="about.html" class="active">من نحن</a></li>
     <li><a href="services.html">الخدمات</a></li>
     <li><a href="contact.html">تواصل معنا</a></li>
   </ul>
+  <button class="theme-toggle" aria-label="تبديل الوضع">☀️</button>
 </nav>
 
 <section class="page-hero">
@@ -198,27 +225,27 @@ footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:7
 </section>
 
 <div class="stats-strip">
-  <div class="stat-card"><div class="num">1979</div><div class="label">سنة التأسيس</div></div>
-  <div class="stat-card"><div class="num">+45</div><div class="label">عاماً من الخبرة</div></div>
-  <div class="stat-card"><div class="num">+1000</div><div class="label">مشروع تم تنفيذه</div></div>
-  <div class="stat-card"><div class="num">٪100</div><div class="label">مصداقية في التعامل</div></div>
+  <div class="stat-card reveal"><div class="num" data-count="1979">0</div><div class="label">سنة التأسيس</div></div>
+  <div class="stat-card reveal"><div class="num" data-count="45" data-prefix="+">0</div><div class="label">عاماً من الخبرة</div></div>
+  <div class="stat-card reveal"><div class="num" data-count="1000" data-prefix="+">0</div><div class="label">مشروع تم تنفيذه</div></div>
+  <div class="stat-card reveal"><div class="num" data-count="100" data-prefix="٪">0</div><div class="label">مصداقية في التعامل</div></div>
 </div>
 
 <section class="projects-section">
   <span class="section-eyebrow">من أرض الواقع</span>
   <h2 class="section-title">من أعمالنا الميدانية</h2>
   <div class="projects-grid">
-    <div class="project-card">
+    <div class="project-card reveal">
       <span class="icon">🏗️</span>
       <h4>توريد لمشاريع سكنية</h4>
       <p>تأمين الحديد والإسمنت لمشاريع سكنية متعددة الطوابق من مرحلة الأساسات وحتى التشطيب، بمتابعة مباشرة لكل طلبية.</p>
     </div>
-    <div class="project-card">
+    <div class="project-card reveal">
       <span class="icon">🚚</span>
       <h4>خدمة التوصيل لموقع المشروع</h4>
       <p>أسطول نقل خاص يوصّل الحديد والإسمنت مباشرة إلى موقع البناء بالكمية والوقت المتفق عليه دون تعطيل العمل.</p>
     </div>
-    <div class="project-card">
+    <div class="project-card reveal">
       <span class="icon">🏢</span>
       <h4>توريد لمشاريع تجارية</h4>
       <p>تأمين مواد البناء بكميات كبيرة لمشاريع ومجمعات تجارية، مع دقة في المواصفات والمواعيد أساس الثقة.</p>
@@ -252,11 +279,11 @@ footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:7
     <span class="section-eyebrow">ما يميزنا</span>
     <h2 class="section-title">قيمنا</h2>
     <div class="values-grid">
-      <div class="value-card"><span>✓</span><p>الجودة</p></div>
-      <div class="value-card"><span>✓</span><p>الثقة</p></div>
-      <div class="value-card"><span>✓</span><p>الالتزام</p></div>
-      <div class="value-card"><span>✓</span><p>خدمة العملاء</p></div>
-      <div class="value-card"><span>✓</span><p>التطوير المستمر</p></div>
+      <div class="value-card reveal"><span>✓</span><p>الجودة</p></div>
+      <div class="value-card reveal"><span>✓</span><p>الثقة</p></div>
+      <div class="value-card reveal"><span>✓</span><p>الالتزام</p></div>
+      <div class="value-card reveal"><span>✓</span><p>خدمة العملاء</p></div>
+      <div class="value-card reveal"><span>✓</span><p>التطوير المستمر</p></div>
     </div>
     <div class="trust-badges">
       <div class="trust-badge"><span>✔</span> معتمدون رسمياً لدى كافة البنوك الإسلامية</div>
@@ -270,22 +297,22 @@ footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:7
     <span class="section-eyebrow">مسيرتنا</span>
     <h2 class="section-title">محطات من تاريخنا</h2>
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item reveal">
         <div class="year">1979</div>
         <h4>التأسيس</h4>
         <p>انطلاقة شركة عبدالسلام ذيابات.</p>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item reveal">
         <div class="year"></div>
         <h4>توسع المستودعات</h4>
         <p>زيادة الطاقة التخزينية وتوسيع نطاق التوريد لمناطق جديدة في الشمال.</p>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item reveal">
         <div class="year"></div>
         <h4>اعتماد بنكي وعسكري</h4>
         <p>الحصول على اعتماد رسمي لدى البنوك الإسلامية وصندوق الائتمان العسكري.</p>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item reveal">
         <div class="year">2026</div>
         <h4>اليوم</h4>
         <p>من أكثر الأسماء الموثوقة في قطاع البناء والتشييد بالأردن بخبرة تتجاوز 45 عاماً.</p>
@@ -304,7 +331,7 @@ footer { background:#050709; border-top:1px solid rgba(201,149,42,.2); padding:7
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="aldiabat.jpg" alt="شعار الشركة">
+      <img src="assets/aldiabat.webp" onerror="this.onerror=null;this.src='aldiabat.jpg'" loading="lazy" alt="شعار الشركة">
       <h3>شركة عبدالسلام ذيابات</h3>
       <span class="since">منذ عام 1979</span>
       <p>خبرة تزيد عن 45 عاماً وثقة نفتخر ببنائها مع عملائنا في مختلف أنحاء المملكة الأردنية.</p>
@@ -340,5 +367,8 @@ function toggleSound() {
   text.textContent = video.muted ? 'تفعيل الصوت' : 'إيقاف الصوت';
 }
 </script>
+<button id="back-to-top" aria-label="العودة للأعلى" title="العودة للأعلى">↑</button>
+<a href="https://wa.me/962799150777" target="_blank" class="whatsapp-float" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب"><svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.37 3 4 8.37 4 15.04c0 2.43.71 4.7 1.94 6.6L4 29l7.56-1.9a11.9 11.9 0 0 0 4.48.87h.01c6.67 0 12.04-5.37 12.04-12.04C28.09 8.37 22.71 3 16.04 3zm0 21.9c-1.6 0-3.13-.43-4.46-1.23l-.32-.19-3.78.95.97-3.73-.21-.34a9.85 9.85 0 0 1-1.51-5.32c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 9.9 9.9c0 5.46-4.45 9.86-9.9 9.86zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.47.13-.62.15-.15.3-.36.45-.55.15-.2.2-.34.3-.55.1-.2.05-.4-.03-.55-.08-.15-.55-1.32-.75-1.8-.2-.46-.4-.4-.55-.4-.15 0-.32-.02-.5-.02-.17 0-.45.07-.7.34-.25.27-.95.93-.95 2.24 0 1.32.97 2.6 1.1 2.78.13.17 1.85 2.84 4.6 3.97 2.32.95 2.8.77 3.3.7.5-.07 1.6-.65 1.83-1.3.22-.62.22-1.15.15-1.3-.07-.13-.27-.2-.57-.34z"/></svg></a>
+<script src="assets/main.js" defer></script>
 </body>
 </html>
