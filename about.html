@@ -62,7 +62,8 @@ nav {
 /* ─── VIDEO ─── */
 .video-section { max-width:1100px; margin:0 auto 110px; padding:0 30px; display:flex; flex-direction:column; align-items:center; }
 .video-frame { position:relative; width:100%; max-width:380px; aspect-ratio:9/16; border-radius:28px; overflow:hidden; border:1px solid rgba(201,149,42,.35); box-shadow:0 40px 90px rgba(0,0,0,.55); background:#000; }
-.video-frame video { width:100%; height:100%; display:block; object-fit:contain; background:#000; }
+.video-frame video { width:100%; height:100%; display:block; object-fit:contain; background:#000; opacity:0; transition:opacity .5s ease; }
+.video-frame video.is-ready { opacity:1; }
 .video-top-label { position:absolute; top:18px; right:18px; z-index:3; display:flex; align-items:center; gap:8px; background:rgba(8,11,15,.55); border:1px solid rgba(201,149,42,.4); backdrop-filter:blur(6px); color:var(--gold-lt); font-size:11px; font-weight:700; letter-spacing:1px; padding:7px 14px; border-radius:30px; }
 .video-top-label .dot { width:7px; height:7px; border-radius:50%; background:var(--gold); animation:pulse-dot 1.8s infinite; }
 @keyframes pulse-dot { 0%{box-shadow:0 0 0 0 rgba(201,149,42,.55)} 70%{box-shadow:0 0 0 8px rgba(201,149,42,0)} 100%{box-shadow:0 0 0 0 rgba(201,149,42,0)} }
@@ -71,6 +72,26 @@ nav {
 .video-caption-bar { margin-top:30px; text-align:center; max-width:600px; }
 .video-caption-bar h2 { font-size:22px; font-weight:800; color:var(--white); margin-bottom:8px; }
 .video-caption-bar p { font-size:14px; color:var(--steel); }
+
+/* ─── VIDEO LOADER ─── */
+.video-loader {
+  position:absolute; inset:0; z-index:4; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:14px;
+  background:radial-gradient(circle at 50% 40%, rgba(201,149,42,.12), var(--black) 75%);
+  transition:opacity .4s ease, visibility .4s ease;
+}
+.video-loader.is-hidden { opacity:0; visibility:hidden; pointer-events:none; }
+.video-loader .spinner {
+  width:46px; height:46px; border-radius:50%;
+  border:3px solid rgba(201,149,42,.2); border-top-color:var(--gold);
+  animation:spin .9s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.video-loader p { font-size:13px; color:var(--steel); font-weight:600; }
+.video-loader .error-msg { display:none; font-size:13px; color:var(--gold-lt); font-weight:700; text-align:center; padding:0 20px; }
+.video-loader.has-error .spinner,
+.video-loader.has-error .loading-msg { display:none; }
+.video-loader.has-error .error-msg { display:block; }
 
 /* ─── STATS ─── */
 .stats-strip { max-width:1100px; margin:0 auto 110px; padding:0 30px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
@@ -209,7 +230,12 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
 
 <section class="video-section">
   <div class="video-frame">
-    <video id="aboutVideo" autoplay muted loop playsinline>
+    <div class="video-loader" id="videoLoader">
+      <div class="spinner"></div>
+      <p class="loading-msg">جاري تحميل الفيديو...</p>
+      <p class="error-msg">تعذّر تحميل الفيديو حالياً<br>يرجى المحاولة لاحقاً</p>
+    </div>
+    <video id="aboutVideo" autoplay muted loop playsinline preload="auto">
       <source src="about.mp4" type="video/mp4">
       متصفحك لا يدعم تشغيل الفيديو.
     </video>
@@ -303,12 +329,12 @@ footer { background:var(--footer-bg); border-top:1px solid rgba(201,149,42,.2); 
         <p>انطلاقة شركة عبدالسلام ذيابات.</p>
       </div>
       <div class="timeline-item reveal">
-        <div class="year"></div>
+        <div class="year">‎</div>
         <h4>توسع المستودعات</h4>
         <p>زيادة الطاقة التخزينية وتوسيع نطاق التوريد لمناطق جديدة في الشمال.</p>
       </div>
       <div class="timeline-item reveal">
-        <div class="year"></div>
+        <div class="year">‎</div>
         <h4>اعتماد بنكي وعسكري</h4>
         <p>الحصول على اعتماد رسمي لدى البنوك الإسلامية وصندوق الائتمان العسكري.</p>
       </div>
@@ -371,6 +397,41 @@ function toggleSound() {
   icon.textContent = video.muted ? '🔇' : '🔊';
   text.textContent = video.muted ? 'تفعيل الصوت' : 'إيقاف الصوت';
 }
+
+(function(){
+  var video = document.getElementById('aboutVideo');
+  var loader = document.getElementById('videoLoader');
+  if (!video || !loader) return;
+
+  var settled = false;
+
+  function markReady(){
+    if (settled) return;
+    settled = true;
+    video.classList.add('is-ready');
+    loader.classList.add('is-hidden');
+  }
+
+  function markError(){
+    if (settled) return;
+    settled = true;
+    loader.classList.add('has-error');
+  }
+
+  // If the video already has enough data by the time this script runs
+  if (video.readyState >= 3) {
+    markReady();
+  } else {
+    video.addEventListener('canplay', markReady, { once: true });
+    video.addEventListener('loadeddata', markReady, { once: true });
+  }
+  video.addEventListener('error', markError, { once: true });
+
+  // Safety net: if it's still stuck after 15s, show an error instead of spinning forever
+  setTimeout(function(){
+    if (!settled) markError();
+  }, 15000);
+})();
 </script>
 <button id="back-to-top" aria-label="العودة للأعلى" title="العودة للأعلى">↑</button>
 <a href="https://wa.me/962799150777" target="_blank" class="whatsapp-float" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب"><svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.37 3 4 8.37 4 15.04c0 2.43.71 4.7 1.94 6.6L4 29l7.56-1.9a11.9 11.9 0 0 0 4.48.87h.01c6.67 0 12.04-5.37 12.04-12.04C28.09 8.37 22.71 3 16.04 3zm0 21.9c-1.6 0-3.13-.43-4.46-1.23l-.32-.19-3.78.95.97-3.73-.21-.34a9.85 9.85 0 0 1-1.51-5.32c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 9.9 9.9c0 5.46-4.45 9.86-9.9 9.86zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.47.13-.62.15-.15.3-.36.45-.55.15-.2.2-.34.3-.55.1-.2.05-.4-.03-.55-.08-.15-.55-1.32-.75-1.8-.2-.46-.4-.4-.55-.4-.15 0-.32-.02-.5-.02-.17 0-.45.07-.7.34-.25.27-.95.93-.95 2.24 0 1.32.97 2.6 1.1 2.78.13.17 1.85 2.84 4.6 3.97 2.32.95 2.8.77 3.3.7.5-.07 1.6-.65 1.83-1.3.22-.62.22-1.15.15-1.3-.07-.13-.27-.2-.57-.34z"/></svg></a>
